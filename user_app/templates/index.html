@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All the Users</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css">
+</head>
+<body>
+    <div id="container">
+        <h1>All of the Users</h1>
+        <p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Age</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.first_name }} {{ user.last_name }}</td>
+                        <td>{{ user.email_address }}</td>
+                        <td>{{ user.age }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </p>
+        <div id="form">
+            <h2>Add a User</h2>
+            <form action="/create" method="POST">
+                {% csrf_token %}
+                <div class="form">
+                    <label for="first_name">First Name</label>
+                    <input type="text" name="first_name" id="first_name">
+                </div>
+                <div class="form">
+                    <label for="last_name">Last Name</label>
+                    <input type="text" name="last_name" id="last_name">
+                </div>
+                <div class="form">
+                    <label for="email_address">Email Address</label>
+                    <input type="email" name="email_address" id="email_address">
+                </div>
+                <div class="form">
+                    <label for="age">Age</label>
+                    <input type="number" name="age" id="age">
+                </div>
+                <button>Submit</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

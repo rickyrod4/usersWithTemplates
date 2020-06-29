@@ -1,0 +1,19 @@
+* {
+    outline: darkred 1px solid;
+}
+
+#container {
+    background-color: rgb(202, 132, 26);
+}
+h1 {
+    color: darkred;
+}
+.form {
+    display: inline-block;
+    margin-top: 5px;
+
+}
+button {
+    background-color: black;
+    color: rgb(202, 132, 26);
+}
